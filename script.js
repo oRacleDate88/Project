@@ -1,34 +1,40 @@
 'use strict';
-//Урок 2
 
-let num = 50;
-if (num<49){
-	console.log('neverno')
-}else if (num >100){
-	console.log('mnogo')
-} else {
-	console.log('verno')
-}
+//Урок 3 - Циклы
 
-(num == 50) ? console.log('Verno') : console.log('Neverno');
 
-switch (num) {
-	case num <49:
-		console.log('neverno');
-		break;
-	case num > 100:
-		console.log('Mnogo');
-		break;
-	case num > 80:
-		console.log('vse mnogo');
-		break;
-	case  50 :
-		console.log ('verno');
-		break;
-	default:
-		console.log('ne tak');
-		break;
-}
+
+
+//Урок 2 - Условия
+
+// let num = 50;
+// if (num<49){
+// 	console.log('neverno')
+// }else if (num >100){
+// 	console.log('mnogo')
+// } else {
+// 	console.log('verno')
+// }
+
+// (num == 50) ? console.log('Verno') : console.log('Neverno');
+
+// switch (num) {
+// 	case num <49:
+// 		console.log('neverno');
+// 		break;
+// 	case num > 100:
+// 		console.log('Mnogo');
+// 		break;
+// 	case num > 80:
+// 		console.log('vse mnogo');
+// 		break;
+// 	case  50 :
+// 		console.log ('verno');
+// 		break;
+// 	default:
+// 		console.log('ne tak');
+// 		break;
+// }
 
 
 
