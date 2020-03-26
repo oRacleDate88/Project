@@ -1,19 +1,66 @@
 'use strict';
+//Урок 2
 
-// alert('Hello');
-// Возвращает true/false на ответ
-// let answer = confirm ('Are u here?');
-// console.log(answer);
+let num = 50;
+if (num<49){
+	console.log('neverno')
+}else if (num >100){
+	console.log('mnogo')
+} else {
+	console.log('verno')
+}
 
-// let answer = + prompt("Есть ли вам 18?", "да"); / Плюс перед prompt превращает строку в число
-// console.log(typeof(answer));
+(num == 50) ? console.log('Verno') : console.log('Neverno');
 
-// console.log ('arr' + " - objcet");
-// console.log (4 + " - objcet");
+switch (num) {
+	case num <49:
+		console.log('neverno');
+		break;
+	case num > 100:
+		console.log('Mnogo');
+		break;
+	case num > 80:
+		console.log('vse mnogo');
+		break;
+	case  50 :
+		console.log ('verno');
+		break;
+	default:
+		console.log('ne tak');
+		break;
+}
 
-// 
-let incr = 10,
-	decr = 10;
 
-console.log(incr++);
-console.log(decr--);
+
+// if (0) {
+// 	console.log('Verno');
+// } 
+// else {
+// 	console.log('Ne verno');
+// }
+
+
+//Урок 1
+// let money = prompt ("Ваш бюджет на месяц ?", "");
+// console.log(money);
+
+// let time = prompt ("Введите дату в формате YYYY-MM-DD");
+// console.log(time);
+
+// let appData = {
+// 	money: money,
+// 	timeDate:time,
+// 	expenses: {},
+// 	optionalExpenses: {},
+// 	income: [],
+// 	savings: false,
+// };
+
+// let quash_1 =  prompt ("Введите обязательную статью расходов в этом месяце");
+// let quash_2 =  prompt ("Во сколько обойдётся ?");
+
+// appData.expenses.first = quash_1;
+// appData.expenses.second = quash_2;
+// console.log(appData.expenses);
+
+// alert("Бюджет 1 дня составялет: "+ money/30);
