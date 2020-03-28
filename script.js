@@ -1,10 +1,5 @@
 'use strict';
 
-//Урок 3 - Циклы
-
-
-
-
 //Урок 2 - Условия
 
 // let num = 50;
@@ -50,7 +45,7 @@
 // let money = prompt ("Ваш бюджет на месяц ?", "");
 // console.log(money);
 
-// let time = prompt ("Введите дату в формате YYYY-MM-DD");
+// let time = prompt ("Введите дату в формате YYYY-MM-DD","");
 // console.log(time);
 
 // let appData = {
@@ -59,6 +54,7 @@
 // 	expenses: {},
 // 	optionalExpenses: {},
 // 	income: [],
+// 	timeData:time,
 // 	savings: false,
 // };
 
@@ -70,3 +66,70 @@
 // console.log(appData.expenses);
 
 // alert("Бюджет 1 дня составялет: "+ money/30);
+
+
+
+//Урок 3 - Циклы
+
+// let num = 50;
+
+// while (num < 55) {
+// 	console.log(num);
+// 	num++;
+// }
+
+// do {
+// 	console.log(num);
+// 	num++;
+// }
+// while(num < 55);
+
+// for(let i = 1;i<8;i++){
+// 	if(i==6){
+// 		continue;
+// 	}
+// 	console.log(i);
+// }
+
+
+let money = +prompt ("Ваш бюджет на месяц ?", "");
+console.log(money);
+
+let time = +prompt ("Введите дату в формате YYYY-MM-DD","");
+console.log(time);
+
+let appData = {
+	budjet: money,
+	expenses: {},
+	optionalExpenses: {},
+	income: [],
+	timeData:time,
+	savings: false,
+};
+
+for (let i=0;i<2;i++){
+	let a =  prompt ("Введите обязательную статью расходов в этом месяце"),
+   		b =  prompt ("Во сколько обойдётся ?");
+
+   	if (typeof(a) === 'string' && typeof(a)!= null && typeof(b)!= null
+   		&& a != '' && b != ''&& a.length < 10) {
+   		console.log('done');
+   		appData.expenses[a] = b;
+   	} else {
+   		break;
+   	}
+
+};
+
+appData.moneyPerDay = appData.budjet/30;
+alert ('Eжедневный бюджет: ' + appData.moneyPerDay );
+
+if (appData.moneyPerDay<100){
+	console.log('Минимальный уровень достатка');
+} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+	console.log('Средний уровень достатка');
+} else if (appData.moneyPerDay > 2000 ) {
+	console.log ('Высокий уровень достатка');
+} else {
+	console.log('Произошла ошибка');
+}
