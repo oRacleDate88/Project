@@ -91,12 +91,117 @@
 // 	console.log(i);
 // }
 
+//Урок по циклам 
 
-let money = +prompt ("Ваш бюджет на месяц ?", "");
-console.log(money);
+// let money = +prompt ("Ваш бюджет на месяц ?", "");
+// console.log(money);
 
-let time = +prompt ("Введите дату в формате YYYY-MM-DD","");
-console.log(time);
+// let time = +prompt ("Введите дату в формате YYYY-MM-DD","");
+// console.log(time);
+
+// let appData = {
+// 	budjet: money,
+// 	expenses: {},
+// 	optionalExpenses: {},
+// 	income: [],
+// 	timeData:time,
+// 	savings: false,
+// };
+
+// for (let i=0;i<2;i++){
+// 	let a =  prompt ("Введите обязательную статью расходов в этом месяце"),
+//    		b =  prompt ("Во сколько обойдётся ?");
+
+//    	if (typeof(a) === 'string' && typeof(a)!= null && typeof(b)!= null
+//    		&& a != '' && b != ''&& a.length < 10) {
+//    		console.log('done');
+//    		appData.expenses[a] = b;
+//    	} else {
+//    		i=i-1;
+//    	}
+
+// };
+
+// appData.moneyPerDay = appData.budjet/30;
+// alert ('Eжедневный бюджет: ' + appData.moneyPerDay );
+
+// if (appData.moneyPerDay<100){
+// 	console.log('Минимальный уровень достатка');
+// } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+// 	console.log('Средний уровень достатка');
+// } else if (appData.moneyPerDay > 2000 ) {
+// 	console.log ('Высокий уровень достатка');
+// } else {
+// 	console.log('Произошла ошибка');
+// }
+
+// Урок по функциям 
+
+// let num = 10;
+
+// function showFirstMessage(text) { //Название-глагол с обозначением
+// 	alert (text);
+// 	console.log(num);
+// }
+
+// //Замыкание функции - функция сначала ищет переменную внутри себя ,а потом во внешней 
+// //то есть замыкание - функция со всеми внешними переменными ей достпуными
+
+// showFirstMessage("Hello");
+// console.log(num);
+
+// function calc (a,b) {
+// 	return (a+b);
+// }
+//!!!!!!!!!!!!!!!функции деклорации - задаются до начала кода. До объявления
+//функции  экспрешен 
+// let calc = function (a,b) {
+// 	return (a+b);
+// }
+// для ES6 , стрелочная функция
+
+// let calc = (a,b) => {a+b}
+
+
+// console.log(calc(3,4));
+// console.log(calc(8,4));
+
+// function retVar (){
+// 	let num = 50;
+// 	return num;
+// }
+
+// let anotherNum = retVar();
+// console.log(anotherNum);
+
+//методы - вспомогательные функции
+// свойства - вспомогательные значения
+//     -свойство length
+
+// let str = 'test';
+// console.log(str.length);
+
+// console.log(str.toUpperCase());
+// console.log(str.toLowerCase());
+
+// let twelve = '12.2';
+// // console.log (Math.round(twelve));
+// console.log(parseInt(twelve));
+// console.log(parseFloat(twelve));
+
+// дз 4 
+let money,time;
+
+function start() {
+	money = +prompt ("Ваш бюджет на месяц ?", ""),
+	time = prompt ("Введите дату в формате YYYY-MM-DD","");
+
+	while(isNan(money) || money =='' || money==null) {  //isNan - проверка,что что-то ввели
+		//null - чтобы П не смог нажать Отмена
+		money = +prompt ("Ваш бюджет на месяц ?", "");
+	}
+}
+start();
 
 let appData = {
 	budjet: money,
@@ -104,10 +209,11 @@ let appData = {
 	optionalExpenses: {},
 	income: [],
 	timeData:time,
-	savings: false,
+	savings: true,
 };
 
-for (let i=0;i<2;i++){
+function chooseExpenses() {
+	for (let i=0;i<2;i++){
 	let a =  prompt ("Введите обязательную статью расходов в этом месяце"),
    		b =  prompt ("Во сколько обойдётся ?");
 
@@ -116,12 +222,16 @@ for (let i=0;i<2;i++){
    		console.log('done');
    		appData.expenses[a] = b;
    	} else {
-   		break;
-   	}
+   		i=i-1;
+   	} 
+   }
+}
 
-};
+chooseExpenses();
 
-appData.moneyPerDay = appData.budjet/30;
+appData.moneyPerDay = (appData.budjet/30).toFixed();
+// если в свойстве поменять цифру,то обнулит до этой цифры после запятой
+
 alert ('Eжедневный бюджет: ' + appData.moneyPerDay );
 
 if (appData.moneyPerDay<100){
@@ -133,3 +243,14 @@ if (appData.moneyPerDay<100){
 } else {
 	console.log('Произошла ошибка');
 }
+
+function checkSavings (){
+	if (appData.savings == true) {
+		let save = +prompt('Какова сумма накоплений?'),
+			procent = +prompt ('Под какой процент?');
+		appData.monthIncome = save/100/12*procent ; 
+		alert('Доход в месяц с вашего депозита: ' + appData.monthIncome);
+	}
+}
+
+checkSavings();
