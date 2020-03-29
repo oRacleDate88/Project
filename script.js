@@ -190,67 +190,142 @@
 // console.log(parseFloat(twelve));
 
 // дз 4 
-let money,time;
+// let money,time;
 
-function start() {
-	money = +prompt ("Ваш бюджет на месяц ?", ""),
-	time = prompt ("Введите дату в формате YYYY-MM-DD","");
+// function start() {
+// 	money = +prompt ("Ваш бюджет на месяц ?", ""),
+// 	time = prompt ("Введите дату в формате YYYY-MM-DD","");
 
-	while(isNan(money) || money =='' || money==null) {  //isNan - проверка,что что-то ввели
-		//null - чтобы П не смог нажать Отмена
-		money = +prompt ("Ваш бюджет на месяц ?", "");
-	}
-}
-start();
+// 	while(isNan(money) || money =='' || money==null) {  //isNan - проверка,что что-то ввели
+// 		//null - чтобы П не смог нажать Отмена
+// 		money = +prompt ("Ваш бюджет на месяц ?", "");
+// 	}
+// }
+// start();
 
-let appData = {
-	budjet: money,
-	expenses: {},
-	optionalExpenses: {},
-	income: [],
-	timeData:time,
-	savings: true,
-};
+// let appData = {
+// 	budjet: money,
+// 	expenses: {},
+// 	optionalExpenses: {},
+// 	income: [],
+// 	timeData:time,
+// 	savings: true,
+// };
 
-function chooseExpenses() {
-	for (let i=0;i<2;i++){
-	let a =  prompt ("Введите обязательную статью расходов в этом месяце"),
-   		b =  prompt ("Во сколько обойдётся ?");
+// function chooseExpenses() {
+// 	for (let i=0;i<2;i++){
+// 	let a =  prompt ("Введите обязательную статью расходов в этом месяце"),
+//    		b =  prompt ("Во сколько обойдётся ?");
 
-   	if (typeof(a) === 'string' && typeof(a)!= null && typeof(b)!= null
-   		&& a != '' && b != ''&& a.length < 10) {
-   		console.log('done');
-   		appData.expenses[a] = b;
-   	} else {
-   		i=i-1;
-   	} 
-   }
-}
+//    	if (typeof(a) === 'string' && typeof(a)!= null && typeof(b)!= null
+//    		&& a != '' && b != ''&& a.length < 10) {
+//    		console.log('done');
+//    		appData.expenses[a] = b;
+//    	} else {
+//    		i=i-1;
+//    	} 
+//    }
+// }
 
-chooseExpenses();
+// chooseExpenses();
 
-appData.moneyPerDay = (appData.budjet/30).toFixed();
-// если в свойстве поменять цифру,то обнулит до этой цифры после запятой
+// appData.moneyPerDay = (appData.budjet/30).toFixed();
+// // если в свойстве поменять цифру,то обнулит до этой цифры после запятой
 
-alert ('Eжедневный бюджет: ' + appData.moneyPerDay );
+// alert ('Eжедневный бюджет: ' + appData.moneyPerDay );
 
-if (appData.moneyPerDay<100){
-	console.log('Минимальный уровень достатка');
-} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
-	console.log('Средний уровень достатка');
-} else if (appData.moneyPerDay > 2000 ) {
-	console.log ('Высокий уровень достатка');
-} else {
-	console.log('Произошла ошибка');
-}
+// if (appData.moneyPerDay<100){
+// 	console.log('Минимальный уровень достатка');
+// } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+// 	console.log('Средний уровень достатка');
+// } else if (appData.moneyPerDay > 2000 ) {
+// 	console.log ('Высокий уровень достатка');
+// } else {
+// 	console.log('Произошла ошибка');
+// }
 
-function checkSavings (){
-	if (appData.savings == true) {
-		let save = +prompt('Какова сумма накоплений?'),
-			procent = +prompt ('Под какой процент?');
-		appData.monthIncome = save/100/12*procent ; 
-		alert('Доход в месяц с вашего депозита: ' + appData.monthIncome);
-	}
-}
+// function checkSavings (){
+// 	if (appData.savings == true) {
+// 		let save = +prompt('Какова сумма накоплений?'),
+// 			procent = +prompt ('Под какой процент?');
+// 		appData.monthIncome = save/100/12*procent ; 
+// 		alert('Доход в месяц с вашего депозита: ' + appData.monthIncome);
+// 	}
+// }
 
-checkSavings();
+// checkSavings();
+
+// Урок 13. Call-back функции 
+// Call-back функция это функция,которая должна быть выполнения после того,как
+// другая функция завершила своё выполнение.
+
+// function first() {
+// 	setTimeout(function(){
+// 		console.log(1);
+// 	},500);
+// }
+
+// function second() {
+// 	console.log(2);
+// }
+
+// first();
+// second();
+
+// function lernJS(lang,callback) {
+// 	console.log('Я учу '+lang);
+// 	callback();
+// }
+
+// lernJS('JavaScript', function(){
+// 	console.log('Я прошёл 3 урок'); 
+// })
+
+// 14 - Объекты.
+// ключ-значение. банан:фрукт
+// let options = {
+// 	width:1024,
+// 	height:1024,
+// 	name:'test'
+// };
+
+// console.log(options.name);
+// options.bool = false;
+// options.colors = {
+// 	border:'black',
+// 	background:'red'
+// };
+
+// delete options.bool;
+
+// console.log(options);
+
+// for(let key in options) {
+// 	console.log('Свойство '+  key + ' имеет значение '+options[key]);
+// }
+// console.log(Object.keys(options).length);
+
+// 15 - Массивы
+// let arr = [1='first' ,2,3,'four',5];
+// let[] = 99;
+// arr.pop(); // Удаление последнего элемента массива
+// arr.push('5'); //Добавление последнего элемента массива
+// arr.shift(); // Удаление первого элемента массива
+// arr.unshift('1')// добавление первого элемента массива
+// for (let i = 0; 1<arr.length; i++){
+// 	console.log(arr[i]);
+// }
+// arr.forEach(function(item,i,mass){
+// 	console.log(i + ': ' + item+' (массив: '+ mass + ')'); 
+// });
+// console.log(arr);
+
+// let mass = [1,3,4,6,7];
+// for (let key of mass) {  //for of - выводит значения массива,а for on клчючи
+// 	console.log(key);
+// }
+
+let ans = prompt('',''),
+	arr = [];
+arr = ans.split(' ');
+console.log(arr);
